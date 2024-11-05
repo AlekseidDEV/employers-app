@@ -6,16 +6,22 @@ import AppTable from "../app-table/app-table.jsx";
 import AddEmployersForm from "../add-employers-form/add-employers-form.jsx";
 
 const App = function (){
-    return (
+
+    const data = [
+        {name: 'Alex', salary: '1000', increase: true, id: 0},
+        {name: 'Alice', salary: '1400', increase: false, id: 1},
+        {name: 'John', salary: '600', increase: false, id: 2},
+        {name: 'Mary', salary: '2600', increase: false, id: 3}
+    ]
+
+     return (
         <div className="app">
             <AppInfo/>
-
             <div className="search-panel">
                 <SearchPanel/>
                 <AppFilter/>
             </div>
-
-            <AppTable/>
+            <AppTable dataList={data}/>
             <AddEmployersForm/>
         </div>
     )
