@@ -1,4 +1,5 @@
 import AppTableItem from "../app-table-item/app-table-item.jsx";
+import PropTypes from "prop-types";
 
 import './app-table.css'
 
@@ -18,6 +19,10 @@ const AppTable = function ({dataList}) {
             </ul>
         </div>
     )
+}
+
+AppTable.propTypes = {
+    dataList: PropTypes.array.isRequired
 }
 
 export default AppTable
