@@ -1,5 +1,7 @@
 import './add-employers-form.css'
 
+import PropTypes from "prop-types";
+
 import {Component} from "react";
 
 class AddEmployeeForm extends Component {
@@ -17,6 +19,19 @@ class AddEmployeeForm extends Component {
         })
     }
 
+    sendForm = (e) => {
+        e.preventDefault()
+
+        if(this.state.nameUser !== '' && this.state.salary !== '') {
+
+            this.props.addEmploy({
+                name: this.state.nameUser,
+                salary: this.state.salary,
+                increase: false,
+            })
+        }
+    }
+
     render = () => {
         const {userName, salary} = this.state
 
@@ -24,6 +39,7 @@ class AddEmployeeForm extends Component {
             <div className="app-add-form">
                 <h3>Добавьте нового сотрудника</h3>
                 <form
+                    onSubmit={this.sendForm}
                     className="add-form d-flex">
                     <input type="text"
                            className="form-control new-post-label"
@@ -37,13 +53,18 @@ class AddEmployeeForm extends Component {
                            className="form-control new-post-label"
                            placeholder="З/П в $?" onChange={this.onValueChange}/>
 
-                    <button type="submit"
+                    <button
+                            type="submit"
                             className="btn btn-outline-light">Добавить
                     </button>
                 </form>
             </div>
         )
     }
+}
+
+AddEmployeeForm.propTypes = {
+    addEmploy: PropTypes.func
 }
 
 export default AddEmployeeForm

@@ -1,6 +1,6 @@
 import './app-table-item.css'
 
-const AppTableItem = function ({name, salary, increase}){
+const AppTableItem = function ({name, salary, increase, onDelete}){
 
     const isIncrease = increase ? ' increase' : ''
 
@@ -14,7 +14,7 @@ const AppTableItem = function ({name, salary, increase}){
                     <i className="fas fa-cookie"></i>
                 </button>
 
-                <button type="button"
+                <button onClick={onDelete} type="button"
                         className="btn-trash btn-sm ">
                     <i className="fas fa-trash"></i>
                 </button>
